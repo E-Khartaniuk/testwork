@@ -1,0 +1,48 @@
+.getReqSection {
+  width: 360px;
+  background-color: rgba(248, 248, 248, 1);
+
+  margin: 0 auto;
+  padding-top: 140px;
+  padding-bottom: 70px;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 2560px) {
+    width: 1024px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    width: 100%;
+  }
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.reqTitle {
+  width: 328px;
+
+  color: var(--Black-87, rgba(0, 0, 0, 0.87));
+  text-align: center;
+
+  /* H1 */
+  font-family: Nunito;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+
+  margin: 0 auto 0;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 2560px) {
+    width: 904px;
+  }
+}

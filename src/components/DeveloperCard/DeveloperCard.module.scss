@@ -1,0 +1,159 @@
+.developersList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  padding: 0;
+
+  margin: 50px auto 0;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 768px;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 2560px) {
+    width: 1024px;
+    gap: 29px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    width: 1170px;
+    gap: 29px;
+  }
+}
+
+.devCard {
+  list-style: none;
+
+  width: 288px;
+  height: 214px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #ffffff;
+
+  padding: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 304px;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 2560px) {
+    width: 244px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    width: 330px;
+  }
+}
+
+.cardImg {
+  height: 70px;
+  width: 70px;
+  display: block;
+  border-radius: 50%;
+
+  margin: 0 auto;
+}
+
+.devCardText {
+  position: relative;
+  color: var(--Black-87, rgba(0, 0, 0, 0.87));
+  text-align: center;
+  white-space: nowrap; /* Заборона перенесення рядка */
+  overflow: hidden; /* Приховування тексту, який не поміщається */
+  text-overflow: ellipsis; /* Додавання трьох точок для позначення тексту, що обрізається */
+
+  /* Body 16 */
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.625;
+
+  max-width: fit-content;
+  margin: 0 auto;
+
+  cursor: pointer;
+}
+
+
+.toolTip {
+  position: relative;
+}
+
+.toolTip::before,
+.toolTip::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --tooltip-color: black;
+
+  overflow: visible;
+
+  position: absolute;
+  top: 73px;
+  left: 190px;
+  transform: translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+  transition: 150ms transform;
+  transform-origin: bottom center;
+
+z-index: 1;
+}
+
+.toolTip::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+
+  content: attr(data-tooltip);
+  color: white;
+  padding: 0 16px;
+  border-radius: .3rem;
+  text-align: center;
+  width: max-content;
+  max-width: fit-content;
+  background: var(--tooltip-color);
+
+// Тултіп
+display: inline-flex;
+padding: 0px 16px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+
+color: #FFF;
+
+font-family: Nunito;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 26px;
+}
+
+.toolTip:hover::before,
+.toolTip:hover::after {
+  --scale: 1;
+
+  overflow: visible;
+
+}
+
+.toolTip::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+}
+
+.devCardName {
+  @extend .devCardText;
+  margin: 20px auto;
+}
