@@ -5,7 +5,7 @@ import scss from './PostRrequest.module.scss';
 import validateEmail from '../helpers/validate/validateEmail';
 import validateNumber from '../helpers/validate/validateNumber';
 import SuccessSignUp from '../SuccessSignUp/SuccessSignUp';
-import { fetchToken } from '../helpers/validate/fetch/fetchToken';
+import { fetchToken } from '../helpers/fetch/fetchToken';
 import Preloader from 'components/Preloader/Preloader';
 
 function PostRequest({ successRegister, setSuccessRegister }) {
@@ -60,7 +60,6 @@ function PostRequest({ successRegister, setSuccessRegister }) {
 
   const handleFileChange = event => {
     setPhoto(event.target.files[0]);
-    console.log('first', event.target.files[0]);
   };
 
   const handleSubmit = async event => {
@@ -99,8 +98,6 @@ function PostRequest({ successRegister, setSuccessRegister }) {
       setIsloading(false);
     }
   };
-
-  console.log('POST successRegister', successRegister);
 
   return (
     <>

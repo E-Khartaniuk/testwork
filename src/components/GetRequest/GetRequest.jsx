@@ -3,8 +3,8 @@ import DeveloperCard from '../DeveloperCard/DeveloperCard';
 import scss from './GetRequest.module.scss';
 import Button from '../Button/Button';
 import Preloader from 'components/Preloader/Preloader';
-import { loadMore } from '../helpers/validate/fetch/loadmore';
-import { fetchUsers } from '../helpers/validate/fetch/fetchUsers';
+import { loadMore } from '../helpers/fetch/loadmore';
+import { fetchUsers } from '../helpers/fetch/fetchUsers';
 
 function GetRequest({ successRegister, scrollToRef }) {
   const [users, setUsers] = useState([]);
@@ -19,7 +19,7 @@ function GetRequest({ successRegister, scrollToRef }) {
         const response = await fetchUsers();
         setUsers(response.data.users);
       } catch (error) {
-        console.error('Ошибка при получении пользователей', error);
+        console.error('Помика отримання юзерів', error);
       } finally {
         setIsloading(false);
       }

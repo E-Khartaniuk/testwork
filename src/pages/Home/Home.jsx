@@ -14,8 +14,6 @@ function Home() {
     }
   }, [successRegister]);
 
-  console.log('HOME successRegister', successRegister);
-
   return (
     <>
       <Header successRegister={successRegister} />
