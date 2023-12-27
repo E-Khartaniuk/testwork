@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/testwork/static/css/main.573fbc2d.css",
+    "main.js": "/testwork/static/js/main.482d99c1.js",
+    "static/media/hero-bg-desltop4k.png": "/testwork/static/media/hero-bg-desltop4k.5fff95b28b2b73999698.png",
+    "static/media/hero-bg-desktop.png": "/testwork/static/media/hero-bg-desktop.97a28916b64bbbafb6eb.png",
+    "static/media/hero-bg-tablet.png": "/testwork/static/media/hero-bg-tablet.78baa64ca2fbf33a156c.png",
+    "static/media/hero-bg-mobile.png": "/testwork/static/media/hero-bg-mobile.f09745ecfb59d899d06d.png",
+    "static/media/success-image.svg": "/testwork/static/media/success-image.147ff01aeb0caaca03a3a94cfe9c0ce6.svg",
+    "static/media/logo.svg": "/testwork/static/media/logo.e523e55788212c85b55aaad90dd146ad.svg",
+    "static/media/testtask.svg": "/testwork/static/media/testtask.884af066979cfcd813c4ab0de7a97468.svg",
+    "static/media/placholder.svg": "/testwork/static/media/placholder.eadc0870557c7bc186c3b5f63a1fe796.svg",
+    "index.html": "/testwork/index.html",
+    "static/media/RadioChecked.svg": "/testwork/static/media/RadioChecked.5a25b883ea436ad2cd0b.svg",
+    "static/media/RadioUnchecked.svg": "/testwork/static/media/RadioUnchecked.31c24ede7cdb1062472b.svg",
+    "main.573fbc2d.css.map": "/testwork/static/css/main.573fbc2d.css.map",
+    "main.482d99c1.js.map": "/testwork/static/js/main.482d99c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.573fbc2d.css",
+    "static/js/main.482d99c1.js"
+  ]
+}
