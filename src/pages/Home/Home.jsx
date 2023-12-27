@@ -19,7 +19,7 @@ function Home() {
   return (
     <>
       <Header successRegister={successRegister} />
-      <Hero />
+      <Hero successRegister={successRegister} />
       <GetRequest
         successRegister={successRegister}
         scrollToRef={getRequestRef}

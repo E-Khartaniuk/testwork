@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import scss from './Hero.module.scss'
-import AnchorButton from '../Button/AnchorButton'
+import scss from './Hero.module.scss';
+import AnchorButton from '../Button/AnchorButton';
 
-function Hero() {
+function Hero({ successRegister }) {
   return (
     <section className={scss.herobg}>
       <div className={scss.hero}>
@@ -19,14 +19,17 @@ function Hero() {
             Front-End Development keeps evolving.
           </p>
           <div className={scss.heroButton}>
-            <AnchorButton anchor={'#signUpAnchor'} className={`anchorButton`}>
-              Sign up
-            </AnchorButton>
+            {/* відображення кнопки реєстрації тільки у незареєстрованого користувача */}
+            {!successRegister && (
+              <AnchorButton anchor={'#signUpAnchor'} className={`anchorButton`}>
+                Sign up
+              </AnchorButton>
+            )}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

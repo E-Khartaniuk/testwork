@@ -1,21 +1,31 @@
+
+.textpreset {
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.625;
+}
+
+// список карток
 .developersList {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 
-  padding: 0;
+    padding: 0;
 
-  margin: 50px auto 0;
+   margin: 50px auto 0;
 
-  @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: baseline;
   }
 
-  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
     width: 768px;
     gap: 16px;
   }
@@ -31,6 +41,7 @@
   }
 }
 
+// картка розробника
 .devCard {
   list-style: none;
 
@@ -76,12 +87,7 @@
   overflow: hidden; /* Приховування тексту, який не поміщається */
   text-overflow: ellipsis; /* Додавання трьох точок для позначення тексту, що обрізається */
 
-  /* Body 16 */
-  font-family: Nunito;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.625;
+  @extend .textpreset;
 
   max-width: fit-content;
   margin: 0 auto;
@@ -89,6 +95,7 @@
   cursor: pointer;
 }
 
+// Додавання та анімація тултіпа
 
 .toolTip {
   position: relative;
@@ -112,20 +119,21 @@
 z-index: 1;
 }
 
+
+
 .toolTip::before {
-  --translate-y: calc(-100% - var(--arrow-size));
+--translate-y: calc(-100% - var(--arrow-size));
 
 
-  content: attr(data-tooltip);
-  color: white;
-  padding: 0 16px;
-  border-radius: .3rem;
-  text-align: center;
-  width: max-content;
-  max-width: fit-content;
-  background: var(--tooltip-color);
-
-// Тултіп
+content: attr(data-tooltip);
+color: white;
+padding: 0 16px;
+border-radius: .3rem;
+text-align: center;
+width: max-content;
+max-width: fit-content;
+background: var(--tooltip-color);
+ 
 display: inline-flex;
 padding: 0px 16px;
 justify-content: center;
@@ -133,12 +141,7 @@ align-items: center;
 gap: 10px;
 
 color: #FFF;
-
-font-family: Nunito;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: 26px;
+@extend .textpreset;
 }
 
 .toolTip:hover::before,

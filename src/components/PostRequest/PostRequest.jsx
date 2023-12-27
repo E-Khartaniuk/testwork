@@ -1,90 +1,106 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
-import scss from './PostRrequest.module.scss'
+import scss from './PostRrequest.module.scss';
 
-import validateEmail from '../helpers/validate/validateEmail'
-import validateNumber from '../helpers/validate/validateNumber'
-import SuccessSignUp from '../SuccessSignUp/SuccessSignUp'
-import { fetchToken } from '../helpers/validate/fetch/fetchToken'
+import validateEmail from '../helpers/validate/validateEmail';
+import validateNumber from '../helpers/validate/validateNumber';
+import SuccessSignUp from '../SuccessSignUp/SuccessSignUp';
+import { fetchToken } from '../helpers/validate/fetch/fetchToken';
+import Preloader from 'components/Preloader/Preloader';
 
 function PostRequest({ successRegister, setSuccessRegister }) {
-  const [token, setToken] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [photo, setPhoto] = useState(null)
-  const [selectedOption, setSelectedOption] = useState('2')
+  const [token, setToken] = useState('');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [photo, setPhoto] = useState(null);
+  const [selectedOption, setSelectedOption] = useState('2');
 
-  const [isNameFocused, setNameFocused] = useState(false)
-  const [isEmailFocused, setEmailFocused] = useState(false)
-  const [isPhoneFocused, setPhoneFocused] = useState(false)
+  const [isNameFocused, setNameFocused] = useState(false);
+  const [isEmailFocused, setEmailFocused] = useState(false);
+  const [isPhoneFocused, setPhoneFocused] = useState(false);
 
-  const [isValidEmail, setIsValidEmail] = useState(true)
-  const [isValidNumber, setIsValidNumber] = useState(true)
+  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isValidNumber, setIsValidNumber] = useState(true);
+
+  const [isLoading, setIsloading] = useState(false);
 
   const isFormValid =
-    name && isValidEmail && phone && isValidNumber && selectedOption && photo
+    name && isValidEmail && phone && isValidNumber && selectedOption && photo;
 
   useEffect(() => {
-    fetchToken().then((response) => setToken(response.data.token))
-  }, [])
+    fetchToken().then(response => setToken(response.data.token));
+  }, []);
 
-  const handleInputChange = (event) => {
-    let inputValue = event.target.value
+  const handleInputChange = event => {
+    let inputValue = event.target.value;
 
     if (event.target.name === 'name') {
-      setName(inputValue)
+      setName(inputValue);
     } else if (event.target.name === 'email') {
-      setEmail(inputValue)
-      setIsValidEmail(validateEmail(inputValue))
+      setEmail(inputValue);
+      setIsValidEmail(validateEmail(inputValue));
     } else if (event.target.name === 'phone') {
-      setPhone(inputValue)
-      setIsValidNumber(validateNumber(inputValue))
+      setPhone(inputValue);
+      setIsValidNumber(validateNumber(inputValue));
     } else if (event.target.name === 'file') {
-      const file = event.target.files[0]
-      setPhoto(file)
+      const file = event.target.files[0];
+      setPhoto(file);
     }
-  }
+  };
 
   const handleSpaceDelete = () => {
-    setEmail(email.trim())
-    setPhone(phone.trim())
-  }
+    setEmail(email.trim());
+    setPhone(phone.trim());
+  };
 
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value)
-  }
+  const handleOptionChange = event => {
+    setSelectedOption(event.target.value);
+  };
 
-  const handleFileChange = (event) => {
-    setPhoto(event.target.files[0])
-    console.log('first', event.target.files[0])
-  }
+  const handleFileChange = event => {
+    setPhoto(event.target.files[0]);
+    console.log('first', event.target.files[0]);
+  };
 
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleSubmit = async event => {
+    event.preventDefault();
 
-    var formData = new FormData()
-    formData.append('position_id', selectedOption)
-    formData.append('name', name)
-    formData.append('email', email)
-    formData.append('phone', phone)
-    formData.append('photo', photo)
+    var formData = new FormData();
+    formData.append('position_id', selectedOption);
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('photo', photo);
 
-    fetch('https://frontend-test-assignment-api.abz.agency/api/v1/users', {
-      method: 'POST',
-      body: formData,
-      headers: { Token: token },
-    }).then((res) => {
-      if (res.ok) {
-        setSuccessRegister(true)
-      } else if (!res.ok) {
-        alert('помилка реєстрації')
-        console.log('error.', res.status)
+    try {
+      setIsloading(true);
+
+      const response = await fetch(
+        'https://frontend-test-assignment-api.abz.agency/api/v1/users',
+        {
+          method: 'POST',
+          body: formData,
+          headers: { Token: token },
+        }
+      );
+
+      if (response.ok) {
+        setSuccessRegister(true);
+      } else {
+        alert(
+          'упс, помилка реєстрації, користувач за таким імейлом чи номером телефона вже існує'
+        );
+        console.log('error.', response.status);
       }
-    })
-  }
+    } catch (error) {
+      console.error('помилка реєстрації', error);
+    } finally {
+      setIsloading(false);
+    }
+  };
 
-  console.log('POST successRegister', successRegister)
+  console.log('POST successRegister', successRegister);
 
   return (
     <>
@@ -116,9 +132,9 @@ function PostRequest({ successRegister, setSuccessRegister }) {
                   onFocus={() => setNameFocused(true)}
                   onBlur={() => {
                     if (name) {
-                      return
+                      return;
                     }
-                    setNameFocused(false)
+                    setNameFocused(false);
                   }}
                 />
               </div>
@@ -148,9 +164,9 @@ function PostRequest({ successRegister, setSuccessRegister }) {
                   onFocus={() => setEmailFocused(true)}
                   onBlur={() => {
                     if (email) {
-                      return
+                      return;
                     }
-                    setEmailFocused(false)
+                    setEmailFocused(false);
                   }}
                 />
                 {!isValidEmail && (
@@ -182,9 +198,9 @@ function PostRequest({ successRegister, setSuccessRegister }) {
                   onFocus={() => setPhoneFocused(true)}
                   onBlur={() => {
                     if (phone) {
-                      return
+                      return;
                     }
-                    setPhoneFocused(false)
+                    setPhoneFocused(false);
                   }}
                 />
                 <span
@@ -272,20 +288,24 @@ function PostRequest({ successRegister, setSuccessRegister }) {
                 </div>
               </div>
 
-              <button
-                type="button"
-                disabled={!isFormValid}
-                className={scss.signUpBtn}
-                onClick={handleSubmit}
-              >
-                Sign up
-              </button>
+              {isLoading ? (
+                <Preloader />
+              ) : (
+                <button
+                  type="button"
+                  disabled={!isFormValid}
+                  className={scss.signUpBtn}
+                  onClick={handleSubmit}
+                >
+                  Sign up
+                </button>
+              )}
             </form>
           </div>
         </section>
       )}
     </>
-  )
+  );
 }
 
-export default PostRequest
+export default PostRequest;

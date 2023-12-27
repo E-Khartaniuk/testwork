@@ -1,39 +1,48 @@
+.textpreset {
+  font-family: Nunito;
+  font-size: 16px; 
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.625;
+  
+}
+
 .postSection {
-    width: 360px;
-    background-color: rgba(248, 248, 248, 1);
-  
-    margin: 0 auto;
-  
-    padding: 40px 0;
-  
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-      width: 768px;
-    }
-  
-    @media screen and (min-width: 1024px) and (max-width: 2560px) {
-      width: 1024px;
-    }
-  
-    @media screen and (min-width: 2560px) {
-      width: 100%;
-    }
+  width: 360px;
+  background-color: rgba(248, 248, 248, 1);
+
+  margin: 0 auto;
+
+  padding: 40px 0;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 2560px) {
+    width: 1024px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    width: 100%;
+  }
   }
   
-  .postSectionContainer {
-    margin: 0 auto;
-  
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-      width: 768px;
-    }
-  
-    @media screen and (min-width: 1024px) and (max-width: 2560px) {
-      width: 1024px;
-    }
-  
-    @media screen and (min-width: 2560px) {
-      width: 100%;
-    }
+.postSectionContainer {
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 768px;
   }
+
+  @media screen and (min-width: 1024px) and (max-width: 2560px) {
+    width: 1024px;
+  }
+
+  @media screen and (min-width: 2560px) {
+    width: 100%;
+  }
+}
   
   .postSectionTitle {
     width: 328px;
@@ -50,6 +59,8 @@
   
     margin: 0 auto 0;
   }
+
+  // ітилі інпута
   
   .postInput {
     display: block;
@@ -73,33 +84,26 @@
   
   .postInputUpload {
     @extend .postInput;
-  
-    color: #7e7e7e;
-  
-    font-family: Nunito;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.625;
-  
-    margin: 0 auto;
-  
+    @extend .textpreset;
+
     position: absolute;
     top: 0;
     left: 0;
     opacity: 0;
+
+    color: #7e7e7e;
+
+    margin: 0 auto;
     cursor: pointer;
-    // z-index: -1;
-  }
+   }
   
   .errorMessage {
+  @extend .textpreset;
     position: absolute;
     color: var(--error, #cb3d40);
-    font-family: Nunito;
     font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 14px;
+
     margin-left: 32px;
     margin-top: 4px;
     bottom: -4;
@@ -112,6 +116,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: 1.166;
+
     margin-left: 32px;
   }
   
@@ -119,7 +124,10 @@
     color: var(--error, #cb3d40);
   }
   
+  // кастомний інпут з типом "file"
   .customFileInputLabel {
+    @extend .textpreset;
+
     position: relative;
     display: inline-block;
     padding: 13px 16px;
@@ -127,13 +135,8 @@
     cursor: pointer;
   
     color: var(--Black-87, rgba(0, 0, 0, 0.87));
-    text-align: center;
-    /* Body 16 */
-    font-family: Nunito;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1, 625;
+    text-align: center; 
+  
   }
   
   .customFileInputContainer {
@@ -164,13 +167,10 @@
   }
   
   .customFileInputText {
+    @extend .textpreset;
     display: inline-block;
     color: #7e7e7e;
-    font-family: Nunito;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.625;
+
     margin: auto auto;
   
     margin-left: 16px;
@@ -183,15 +183,13 @@
     margin: 47px auto 0;
   }
   
+  // тайтл радіо батонів
+
   .postReqRadioTitle {
+    @extend .textpreset;
+
     width: 328px;
     height: 25px;
-  
-    font-family: Nunito;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 26px;
   
     margin: 0 auto;
   }
@@ -201,7 +199,7 @@
     margin-bottom: 11px;
   }
   
-  // radio +++++++++++++++++++++
+  // кастомній радіо батони +++++++++++++++++++++
   
   .radioField {
     width: 360px;
@@ -225,6 +223,7 @@
     cursor: pointer;
   }
   
+
   .radioFieldLable::before {
     content: url("../../img/RadioUnchecked.svg");
     position: absolute;
@@ -245,7 +244,7 @@
     stroke: blue;
   }
   
-  // radio end ==========================
+//  інпут
   
   .inputContainer {
     position: relative;
@@ -254,19 +253,13 @@
   }
   
   .inputLabel {
+    @extend .textpreset;
     position: absolute;
     top: 18px;
     left: 29px;
   
     color: #7e7e7e;
-  
-    /* Body 16 */
-    font-family: Nunito;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 26px;
-  
+       
     cursor: auto;
   }
   
@@ -279,7 +272,11 @@
     padding: 0 4px;
   }
   
+
+  // кнопка реєстрації
   .signUpBtn {
+    @extend .textpreset;
+
     display: block;
   
     width: 100px;
@@ -290,24 +287,20 @@
     border-radius: 80px;
     background: var(--Primary, #f4e041);
   
-    font-family: Nunito;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.625;
-  
     color: var(--Black-87, rgba(0, 0, 0, 0.87));
     text-align: center;
   
+    margin: 50px auto;
+
     cursor: pointer;
   
-    margin: 50px auto;
   
     &:hover {
       background: rgba(255, 227, 2, 1);
     }
   }
   
+  // неактивний стан
   .signUpBtn:disabled {
     background-color: rgba(180, 180, 180, 1);
     color: white;
