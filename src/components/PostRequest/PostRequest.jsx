@@ -111,6 +111,7 @@ function PostRequest({ successRegister, setSuccessRegister }) {
           <div className={scss.postSectionContainer}>
             <h2 className={scss.postSectionTitle}>Working with POST request</h2>
             <form onChange={handleInputChange} onBlur={handleSpaceDelete}>
+              {/* інпути */}
               <div className={scss.inputContainer}>
                 <label
                   htmlFor="name"
@@ -214,6 +215,7 @@ function PostRequest({ successRegister, setSuccessRegister }) {
                 </span>
               </div>
 
+              {/* радіо батони */}
               <fieldset className={scss.radioField}>
                 <h3 className={scss.postReqRadioTitle}>Select your position</h3>
                 <input
@@ -262,6 +264,7 @@ function PostRequest({ successRegister, setSuccessRegister }) {
                 </label>
               </fieldset>
 
+              {/* Файл аплоадер інпут */}
               <div className={scss.container}>
                 <div className={scss.customFileInputContainer}>
                   <div className={scss.customFileInput}>
